@@ -7,12 +7,14 @@
     <title>Restaurant Pop Sushi</title>
 
 
-    <link rel="stylesheet" type="text/css"  href="{% static 'css/estilos.css'  %}"> 
+    
     <meta name="viewport"
         content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0">
+
         <link href="https://file.myfontastic.com/t5tNwfwUapz4yDzK3B6sfe/icons.css" rel="stylesheet"> 
         <script src="https://use.fontawesome.com/502b7294a9.js"></script>
-        
+        <link rel="stylesheet" type="text/css"  href="{% static 'css/estilos.css'  %}"> 
+        <link rel="stylesheet" type="text/css"  href="{% static 'css/footer.css'  %}"> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -26,17 +28,6 @@
 </head>
 
 <body> 
-{% block Home %}
-<h2>Área para miembros</h2>
-
-<p>
-    Bienvenido <b>{{request.user.username}}</b>, 
-    esta página es exclusiva para usuarios registrados.
-</p>
-
-<hr />
-<a href="/logout">Cerrar sesión</a>
-{% endblock Home %}
 
 
           <div id="preloader"> <!-- se usa id porque utilizaremos jquery--> 
@@ -57,15 +48,16 @@
             <span class="icon-menu" id="btn-menu"></span>
             <nav class="nav" id="nav">
                 <ul class="menu">
-                    <li class="menu__item"><a href="#headerr" class="menu__link">Inicio</a></li>
-                    <li class="menu__item"><a href="#quienessomos" class="menu__link">Quienes Somos</a></li>
-                    <li class="menu__item"><a href="#galeriafotos" class="menu__link">Menú</a></li>
-                    <li class="menu__item"><a href="#eventoespeciales" class="menu__link">Evento Especiales</a></li>
-                   <li class="menu__item"><a href="#Contacto" class="menu__link">Contacto</a></li>
+                    <li class="menu__item"><a href="{% url 'home' %}"" class="menu__link">Inicio</a></li>
+                    <li class="menu__item"><a href="{% url 'info' %}" class="menu__link">Quienes Somos</a></li>
+                    <li class="menu__item"><a href="{% url 'galeria' %}" class="menu__link">Galeria</a></li>
+                     <li class="menu__item"><a href="{% url 'carta' %}" class="menu__link">La Carta</a></li>
+                    <li class="menu__item"><a href="{% url 'eventos' %}" class="menu__link">Evento Especiales</a></li>
+                   <li class="menu__item"><a href="{% url 'contacto' %}" class="menu__link">Contacto</a></li>
                          
 
                   {% if user.is_authenticated %}     
-                  <li class="menu__item"><a href="#" class="menu__link" style="color:red">{{user.username}}</a></li>
+                  
                   <li class="menu__item"><a href="/logout" class="menu__link" style="color:red">Cerrar Sesion</a></li>
                   {% else %}
                    <li class="menu__item"><a href="{% url 'registro_usuario' %}" class="menu__link">registrate</a></li>
@@ -82,93 +74,66 @@
         </div>
 
     </header>
-      <div class="carrusel" >
-                      
-                      {% block contenidoCarrusel %}
-                      
-                      {% endblock contenidoCarrusel %}
-                      
 
-         </div> 
-  
-
-   
-    <main>
-            <section class="quienes" id="quienessomos">
-                    <div class="contenedor">
-                        <h3 class="quienes-titulo">Quienes somos </h3>
-                        <p class="quienes-parrafo">Nuestra misión es entregar el mejor SUSHI a nuestros clientes con ingredientes frescos, en un formato adecuado y en el menor tiempo posible.
-                                Para ello contamos con experimentados cocineros, selectos proveedores y suministros de alta calidad.
-                                Como local anexo a Pop Sushi Restaurant nuestros estándares son los más altos tanto en preparación, cuidado y presentación de nuestras recetas.
-                                Encontrará preparaciones tradicionales que garantizan una experiencia única para aquellos que no nos conocen y la tradición de siempre para nuestros clientes de toda la vida.</p>
-                     </div> 
-                 </section>
-         
-                 <section class="galeria" id="galeriafotos">
-                        <div class="contenedor">
-                            <div class="galeria_texto">
-                                <h2>Descubre Nuestro Menú</h2>
-                                <p>Ven y aprovecha todo de la comida occidental </p>
-                            </div>
-                            {% block Galeria %}
-                            
-                            {% endblock Galeria %}
-                            
-                        </div>
-                    </section>     
-
-        
-        <section class="especial"id="eventoespeciales">
-                <h3 class="programas__titulo">Eventos especiales</h3>
-                <h4 class="programas__txt">Restaurant Rinconada es un lugar ideal para reuniones y comidas de negocios,
-                    cumpleaños, eventos privados, etc.
-                </h4>
-           <div class="contenedor">  
-               <article class="especial__columna1">
-             <img src= "{% static  'img/111.jpg'  %}" alt="" class="especial__img">
-                   <div class="informacion">
-                   <h3 class="especial__titulo">Eventos sociales</h3>
-                   <p class="especial__txt">Pop Sushi  Cuenta con una Gran Gama  de Comida Oriental en 
-                       el cual Ofrece para Reuniones, Celebraciones Privadas y Hasta Publico.
-                        
-                  </p>
-                   <button class="button">Realiza tú Cotización</button></div>
-               </article>
-                 <article class="especial__columna2">
-             <img src= "{% static 'img/222.jpg'  %}" alt="" class="especial__img">   
-                     <div class="informacion">
-                   <h3 class="especial__titulo">Eventos Empresariales</h3>
-                   <p class="especial__txt">Pop Sushi cuenta con una dilatada experiencia en
-                        organización de eventos empresariales desde Congresos y reuniones a comidas de empresa.
-                  </p>
-                     <button class="button">Realiza tú Cotización</button> </div>
-               </article>
-               
-                 <article class="especial__columna3">
-             <img src= "{% static  'img/333.jpg'  %}"  alt="" class="especial__img">   
-                     <div class="informacion">
-                   <h3 class="especial__titulo">Matrimonios</h3>
-                   <p class="especial__txt">Al contrarar Pop Sushi Garantiza una Gran banqueteria de
-                        Nuestra
-                        Gastronomía Oriental Para Celebrar El Día de tú Boda.
-                  </p>
-                     <button class="button">Realiza tú Cotización</button></div>
-               </article>
-               </div>
-              
-               <section class="mapa">
-                    <div class="contenedor">
-                  <div class="mapa__iframe">
-                       <h3>Como Llegar </h3>
-                  <p>Yerbas Buenas, Penco,Chile</p>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3952258486206!2d-72.99299548523429!3d-36.73708337996158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96684ca99aeafa77%3A0xdcd6bd0baecd7c5d!2zWWVyYmFzIEJ1ZW5hcywgUGVuY28sIFJlZ2nDs24gZGVsIELDrW8gQsOtbw!5e0!3m2!1ses-419!2scl!4v1567994389215!5m2!1ses-419!2scl" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                  </div>
-                   </div>
-              </section> 
       
+       
+  <main>
+
+            {% block Contenido %}
+
+
+            {% endblock %}
+
 
     </main>
-   
+   <footer>
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-4 col-md-6">
+        <h3>Usuario</h3>
+        <ul class="list-unstyled three-column">
+          <li>{{user.username}}</li>
+          
+          
+        </ul>
+        <ul class="list-unstyled socila-list">
+          <li><img src= "{% static 'imgc/facebook.png'  %}" alt="" /></li>
+          <li><img src= "{% static 'imgc/instagram.png'  %}" alt="" /></li>
+          <li><img src= "{% static 'imgc/twitter.png'  %}" alt="" /></li>
+          
+        </ul>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <h3>HORARIO</h3>
+        <div class="media">      
+          <div class="media-body">
+            
+            <p>Lunes a Sábado: 18:00 a 22:45 hrs.
+            Consulte costo por entrega fuera de la zona de reparto. </p>
+          </div>
+        </div>
+        
+      
+        
+       
+        
+      </div>
+      
+      <div class="col-mg-4">
+        <h3>          Our Work</h3>
+         
+        <img src= "{% static 'imgc/tp.jpg'  %}" style="padding-left:50px" alt="" />
+      
+      </div>
+      
+    </div>
+  </div>
+  <div class="copyright text-center">
+    Copyright &copy; 2019 <span>PopSushi</span>
+  </div>
+</footer>
 
 <script src= "{% static   'js/jquery.js'  %}"></script>
 <script src = "{% static  'js/menu.js'   %}"></script>

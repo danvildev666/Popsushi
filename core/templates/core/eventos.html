@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+  {% block Contenido %}
+        
+  <section class="especial"id="eventoespeciales">
+                <h3 class="programas__titulo">Eventos especiales</h3>
+                <h4 class="programas__txt">Restaurant Rinconada es un lugar ideal para reuniones y comidas de negocios,
+                    cumpleaños, eventos privados, etc.
+                </h4>
+           <div class="contenedor">  
+               <article class="especial__columna1">
+             <img src= "{% static  'img/111.jpg'  %}" alt="" class="especial__img">
+                   <div class="informacion">
+                   <h3 class="especial__titulo">Eventos sociales</h3>
+                   <p class="especial__txt">Pop Sushi  Cuenta con una Gran Gama  de Comida Oriental en 
+                       el cual Ofrece para Reuniones, Celebraciones Privadas y Hasta Publico.
+                        
+                  </p>
+                   <button class="button">Realiza tú Cotización</button></div>
+               </article>
+                 <article class="especial__columna2">
+             <img src= "{% static 'img/222.jpg'  %}" alt="" class="especial__img">   
+                     <div class="informacion">
+                   <h3 class="especial__titulo">Eventos Empresariales</h3>
+                   <p class="especial__txt">Pop Sushi cuenta con una dilatada experiencia en
+                        organización de eventos empresariales desde Congresos y reuniones a comidas de empresa.
+                  </p>
+                     <button class="button">Realiza tú Cotización</button> </div>
+               </article>
+               
+                 <article class="especial__columna3">
+             <img src= "{% static  'img/333.jpg'  %}"  alt="" class="especial__img">   
+                     <div class="informacion">
+                   <h3 class="especial__titulo">Matrimonios</h3>
+                   <p class="especial__txt">Al contrarar Pop Sushi Garantiza una Gran banqueteria de
+                        Nuestra
+                        Gastronomía Oriental Para Celebrar El Día de tú Boda.
+                  </p>
+                     <button class="button">Realiza tú Cotización</button></div>
+               </article>
+               </div>
+               </section>
+        {% endblock %}

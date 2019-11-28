@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block Contenido %}
+
+<section class="galeria" id="galeriafotos">
+                        <div class="contenedor">
+                            <div class="galeria_texto">
+                                <h2>Descubre Nuestro Menú</h2>
+                                <p>Ven y aprovecha todo de la comida occidental </p>
+                            </div>
+                            <section class="galeria1">
+                                <div class="fotos">
+                                    <img src= "{% static 'img/1.jpg'  %}">
+                                </div>
+                                 <div class="fotos">
+                                    <img src= "{% static 'img/2.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/3.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/4.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/5.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/6.jpg'  %}">
+                                </div>
+                            </section>
+                        </div>
+                    </section>     
+
+
+{% endblock %}

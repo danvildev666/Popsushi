@@ -11,6 +11,21 @@ from .forms import CustomUserForm
 # Create your views here.
 def home(request):
     return render(request, "core/home.html")
+
+def eventos(request):
+    return render(request, "core/eventos.html")
+
+def galeria(request):
+    return render(request, "core/galeria.html")
+
+def info(request):
+    return render(request, "core/info.html")
+
+def contacto(request):
+    return render(request, "core/contacto.html")
+
+def carta(request):
+    return render(request, "core/carta.html")
 def Registro_usuario(request):
     data= {
         'form': CustomUserForm()

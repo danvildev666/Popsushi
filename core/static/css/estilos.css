@@ -87,8 +87,8 @@ body {
 }
 
 main .quienes {
-    background: #f0f3f5;
     padding: 60px 0;
+    padding-top: 100px;
 }
 
 main .quienes .quienes-titulo {
@@ -115,10 +115,12 @@ main .quienes .quienes-parrafo {
 
 .mapa h3 {
     font-size: 25px;
+    color: #fff;
 }
 
 .mapa p {
     text-align: justify;
+    color: #dfe3eb;
 }
 
 
@@ -174,7 +176,8 @@ main .quienes .quienes-parrafo {
 /*-----------------estilos de especial--------------*/
 
 .especial {
-    background: rgb(3, 48, 66);
+    background: url("css_background/indexbks.jpg") no-repeat top center fixed;
+    background-size: cover;
     text-align: center;
     color: #fff;
 }
@@ -358,15 +361,16 @@ main .quienes .quienes-parrafo {
 /*****************************carousel*****************************************/
 
 .carrusel {
-    width: 95%;
+    width: 100%;
     margin: auto;
     overflow: hidden;
+    background-color: #000405;
 }
 
 .carrusel ul {
     display: flex;
     padding: 0;
-    width: 400%;
+    width: 100%;
     animation: cambio 20s infinite alternate linear;
 }
 
