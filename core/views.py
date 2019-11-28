@@ -7,13 +7,35 @@ from django.contrib.auth import login as do_login
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required, permission_required
-from .forms import CustomUserForm
+from .forms import CustomUserForm,ReservaForm
+from .models import Reserva
 # Create your views here.
 def home(request):
     return render(request, "core/home.html")
 
 def eventos(request):
     return render(request, "core/eventos.html")
+
+def reserva(request):
+    data= {
+        'form': ReservaForm()
+    }
+    
+    if request.method == "POST":
+        # Añadimos los datos recibidos al formulario
+        formulario = CustomUserForm(request.POST)
+        # Si el formulario es válido...
+        if formulario.is_valid():
+
+            # Creamos la nueva cuenta de usuario
+            formulario.save()
+            #redirigir si esta autenticado
+            
+            return redirect(to='/')
+
+           
+    return render(request,'core/reserva.html',data)
+
 
 def galeria(request):
     return render(request, "core/galeria.html")

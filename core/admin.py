@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.models import Carrusel,Galeriap,Menu,Reserva,Sucursal
+from core.models import Carrusel,Galeriap,Menu,Reserva,Sucursal,Tipo
 
 class ReservaAdmin(admin.ModelAdmin):
     list_display = ['nombre','rut','sucursal','fecha_reserva']
@@ -16,3 +16,4 @@ admin.site.register(Galeriap)
 admin.site.register(Menu)
 admin.site.register(Reserva,ReservaAdmin)
 admin.site.register(Sucursal)
+admin.site.register(Tipo)

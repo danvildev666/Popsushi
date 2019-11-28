@@ -1,9 +1,10 @@
 from django.urls import path
 from django.contrib import admin
-from .views import home,login,logout,register,Registro_usuario,eventos,galeria,info,contacto,carta
+from .views import home,login,logout,register,Registro_usuario,eventos,galeria,info,contacto,carta,reserva
 from core import views
 urlpatterns = [
     path('',home, name='home'),
+    path('reserva/',reserva, name='reserva'),
     path('carta/',carta, name='carta'),
     path('eventos/',eventos, name='eventos'),
     path('galeria/',galeria, name='galeria'),
