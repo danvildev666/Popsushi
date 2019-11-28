@@ -1,15 +1,18 @@
 from django.contrib import admin
 
-from core.models import Carrusel,Galeriap
+from core.models import Carrusel,Galeriap,Menu,Reserva,Sucursal
 
-class CarruselAdmin(admin.ModelAdmin):
-    list_display = ['descripcion', 'foto']
-    search_fields = ['descripcion']
-    list_filter = ['descripcion']
-    fields = ['image_tag']
+class ReservaAdmin(admin.ModelAdmin):
+    list_display = ['nombre','rut','sucursal','fecha_reserva']
+    search_fields = ['rut']
+    list_filter = ['sucursal']
+    
     list_per_page = 10
     
    
 
-admin.site.register(Carrusel,CarruselAdmin)
+admin.site.register(Carrusel)
 admin.site.register(Galeriap)
+admin.site.register(Menu)
+admin.site.register(Reserva,ReservaAdmin)
+admin.site.register(Sucursal)

@@ -18,5 +18,29 @@ class Galeriap(models.Model):
     def __str__(self):
         return self.descripcion
 
-    
+class Menu(models.Model):
+    #id -> numero autoincrementable
+    nombre = models.CharField(max_length=80)
 
+    def __str__(self):
+        return self.nombre
+
+class Sucursal(models.Model):
+    #id -> numero autoincrementable
+    nombre = models.CharField(max_length=80)
+
+    def __str__(self):
+        return self.nombre 
+
+class Reserva(models.Model):
+    nombre = models.CharField(max_length=200)
+    rut = models.CharField(max_length=200)
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
+    asistentes  = models.IntegerField()
+    direccion = models.TextField(null=True, blank=True)
+    fecha_reserva = models.DateField()
+    
+    
+    def __str__(self):
+        return self.nombre
