@@ -1,16 +1,48 @@
-{% extends 'core/index.html' %}
 
     
-<h2>Área para miembros</h2>
+     {% extends 'core/base.html' %}
+     {% load static %}
 
-<p>
-    Bienvenido <b>{{request.user.username}}</b>, 
-    esta página es exclusiva para usuarios registrados.
-</p>
+{% block Home %}
 
-<hr />
-<a href="/logout">Cerrar sesión</a>
-   
+{% endblock Home %}
+
+{% block contenidoCarrusel %}
+<br/>
+                      <ul>
+
+                        <li><img src= "{% static  'img/img1.jpg'  %}"></li>
+                        <li><img src= "{% static  'img/img2.jpg' %}"></li>
+                        <li><img src= "{% static  'img/img3.jpg' %}"></li>
+                        <li><img src= "{% static  'img/img4.jpg' %}"></li>
+
+                      </ul>
+
+{% endblock contenidoCarrusel %}
 
 
-     
+{% block Galeria %}
+
+<section class="galeria1">
+                                <div class="fotos">
+                                    <img src= "{% static 'img/1.jpg'  %}">
+                                </div>
+                                 <div class="fotos">
+                                    <img src= "{% static 'img/2.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/3.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/4.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/5.jpg'  %}">
+                                </div>
+                                <div class="fotos">
+                                    <img src= "{% static 'img/6.jpg'  %}">
+                                </div>
+                            </section>
+
+
+{% endblock Galeria %}
