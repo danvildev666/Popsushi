@@ -16,14 +16,15 @@ class ReservaForm(ModelForm):
         fields  = ['nombre', 'rut', 'menu', 'sucursal', 'asistentes','fecha_reserva','tipo']
 
         widgets = {
-            'fecha_reserva ':forms.SelectDateWidget(years=range(1945, 2020))
+            'fecha_reserva ':forms.SelectDateWidget(years=range(2019, 2030))
+            
         }
     
     def clean_fecha_reserva (self):
         fecha = self.cleaned_data['fecha_reserva']
 
-        if fecha > datetime.date.today():
-            raise forms.ValidationError("La fecha no puede ser mayor al día de hoy")
+        if fecha < datetime.date.today():
+            raise forms.ValidationError("La fecha no puede ser menor al día de hoy")
 
         return fecha
         

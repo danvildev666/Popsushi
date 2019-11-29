@@ -4,7 +4,7 @@ from core.models import Carrusel,Galeriap,Menu,Reserva,Sucursal,Tipo
 
 class ReservaAdmin(admin.ModelAdmin):
     list_display = ['nombre','rut','sucursal','fecha_reserva']
-    search_fields = ['rut']
+    search_fields = ['rut','nombre']
     list_filter = ['sucursal']
     
     list_per_page = 10
