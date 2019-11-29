@@ -49,18 +49,9 @@
             <nav class="nav" id="nav">
                 <ul class="menu">
                 
-                 {% if user.is_superuser %}
-                 <li class="menu__item"><a href="{% url 'home' %}"" class="menu__link">Inicio</a></li>
-                    <li class="menu__item"><a href="{% url 'info' %}" class="menu__link">Quienes Somos</a></li>
-                    <li class="menu__item"><a href="{% url 'galeria' %}" class="menu__link">Galeria</a></li>
-                     <li class="menu__item"><a href="{% url 'carta' %}" class="menu__link">La Carta</a></li>
-                     
-                    <li class="menu__item"><a href="{% url 'eventos' %}" class="menu__link">Evento Especiales</a></li>
-                   <li class="menu__item"><a href="{% url 'contacto' %}" class="menu__link">Contacto</a></li>
-                   <li class="menu__item"><a href="/admin" class="menu__link" style="color:red">Administracion</a></li>
-                   <li class="menu__item"><a href="/logout" class="menu__link" style="color:red">Cerrar Sesion</a></li>
+               
 
-                 {% elif user.is_authenticated %}
+                 {% if user.is_authenticated %}
                  
                     <li class="menu__item"><a href="{% url 'home' %}"" class="menu__link">Inicio</a></li>
                     <li class="menu__item"><a href="{% url 'info' %}" class="menu__link">Quienes Somos</a></li>
@@ -106,17 +97,30 @@
    <footer>
   <div class="container">
     <div class="row">
-       {% if perms.core.view_reserva %} 
+
+       {% if user.is_superuser %}
+        <div class="col-lg-4 col-md-6">
+        <h3>Super Usuario</h3>
+        <ul class="list-group">
+          <li>{{user.username}}</li>   
+        <li><a href="{% url 'lista'%}">Reservas</a></li>
+         <li><a href="/admin">Admin Panel</a></li>
+      
+       {% elif perms.core.view_reserva %} 
       <div class="col-lg-4 col-md-6">
         <h3>Administracion</h3>
         <ul class="list-group">
           <li>{{user.username}}</li>   
         <li><a href="{% url 'lista'%}">Reservas</a></li>
+
+            
+       
+
          {% elif user.is_authenticated %} 
       <div class="col-lg-4 col-md-6">
         <h3>Usuario</h3>
         <ul class="list-group">
-          <li>{{user.username}}</li>   
+          <li>{{user.username}}</li>  
         
          
           {% else %}
