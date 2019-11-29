@@ -12,11 +12,11 @@ from .models import Reserva
 # Create your views here.
 def home(request):
     return render(request, "core/home.html")
-
+@permission_required('core.view_reserva')
 def eventos(request):
     return render(request, "core/eventos.html")
 
-
+@permission_required('core.view_reserva')
 def lista(request):
     reservas = Reserva.objects.all()
     data = {
@@ -24,7 +24,7 @@ def lista(request):
     }
     return render(request, "core/lista.html",data)
 
-
+@permission_required('core.add_reserva')
 def reserva(request):
     data= {
         'form': ReservaForm()
@@ -36,7 +36,7 @@ def reserva(request):
             data['mensaje']="Guardado Correctamente"
 
     return render(request,'core/reserva.html',data)
-
+@permission_required('core.change_reserva')
 def modreserva(request, id):
     reservas = Reserva.objects.get(id=id)
     data = {
@@ -52,7 +52,7 @@ def modreserva(request, id):
 
     return render(request, 'core/modreserva.html', data)
 
-
+@permission_required('core.delete_reserva')
 def eliminar_reserva(request, id):
     reservas = Reserva.objects.get(id=id)
     reservas.delete()
