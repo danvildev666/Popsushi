@@ -16,24 +16,25 @@ def home(request):
 def eventos(request):
     return render(request, "core/eventos.html")
 
+
+def lista(request):
+    reservas = Reserva.objects.all()
+    data = {
+        'reserva':reservas
+    }
+    return render(request, "core/lista.html",data)
+
+
 def reserva(request):
     data= {
         'form': ReservaForm()
     }
-    
-    if request.method == "POST":
-        # Añadimos los datos recibidos al formulario
-        formulario = CustomUserForm(request.POST)
-        # Si el formulario es válido...
+    if request.method == 'POST':
+        formulario = ReservaForm(request.POST)
         if formulario.is_valid():
-
-            # Creamos la nueva cuenta de usuario
             formulario.save()
-            #redirigir si esta autenticado
-            
-            return redirect(to='/')
+            data['mensaje']="Guardado Correctamente"
 
-           
     return render(request,'core/reserva.html',data)
 
 
