@@ -12,6 +12,14 @@ main .blackground {
     background: rgb(0, 0, 0);
 }
 
+main .contacto {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 main .styleground {
     background: url("css_background/indexbks.jpg") no-repeat top center fixed;
     background-size: cover;

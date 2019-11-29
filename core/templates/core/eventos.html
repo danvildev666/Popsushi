@@ -16,7 +16,7 @@
                        el cual Ofrece para Reuniones, Celebraciones Privadas y Hasta Publico.
                         
                   </p>
-                   <button class="button">Realiza tú Reserva</button></div>
+                  
                </article>
                  <article class="especial__columna2">
              <img src= "{% static 'img/222.jpg'  %}" alt="" class="especial__img">   
@@ -25,12 +25,7 @@
                    <p class="especial__txt">Pop Sushi cuenta con una dilatada experiencia en
                         organización de eventos empresariales desde Congresos y reuniones a comidas de empresa.
                   </p>
-                  {% if user.is_authenticated %}  
-                   <a href="{% url 'reserva' %}" class="button">Realiza tu reserva</a></div>
-                      {% else %}
-                      <a href="{% url 'login' %}" class="button">Logueate para reservar</a></div>
-                      {% endif %}
-
+                 
                </article>
                
                  <article class="especial__columna3">
@@ -41,7 +36,7 @@
                         Nuestra
                         Gastronomía Oriental Para Celebrar El Día de tú Boda.
                   </p>
-                     <button class="button">Realiza tú Reserva</button></div>
+                   
                </article>
                </div>
                </section>

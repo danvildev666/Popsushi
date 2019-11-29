@@ -12,7 +12,7 @@ from .models import Reserva
 # Create your views here.
 def home(request):
     return render(request, "core/home.html")
-@permission_required('core.view_reserva')
+
 def eventos(request):
     return render(request, "core/eventos.html")
 
