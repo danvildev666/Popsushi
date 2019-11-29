@@ -37,7 +37,27 @@ def reserva(request):
 
     return render(request,'core/reserva.html',data)
 
+def modreserva(request, id):
+    reservas = Reserva.objects.get(id=id)
+    data = {
+        'form': ReservaForm(instance=reservas)
+    }
 
+    if request.method == 'POST':
+        formulario = ReservaForm(data=request.POST, instance=reservas, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = "Modificado correctamente"
+        data['form'] = ReservaForm(instance=Reserva.objects.get(id=id))
+
+    return render(request, 'core/modreserva.html', data)
+
+
+def eliminar_reserva(request, id):
+    reservas = Reserva.objects.get(id=id)
+    reservas.delete()
+
+    return redirect(to="lista")
 def galeria(request):
     return render(request, "core/galeria.html")
 

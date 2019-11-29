@@ -1,10 +1,12 @@
 from django.urls import path
 from django.contrib import admin
-from .views import home,login,logout,Registro_usuario,eventos,galeria,info,contacto,carta,reserva,lista
+from .views import home,login,logout,Registro_usuario,eventos,galeria,info,contacto,carta,reserva,lista,modreserva,eliminar_reserva
 from core import views
 urlpatterns = [
     path('',home, name='home'),
     path('reserva/',reserva, name='reserva'),
+    path('modreserva/<id>/',modreserva, name='modreserva'),
+    path('eliminar_reserva/<id>/',eliminar_reserva, name='eliminar_reserva'),
     path('lista/',lista, name='lista'),
     path('carta/',carta, name='carta'),
     path('eventos/',eventos, name='eventos'),

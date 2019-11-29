@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+  {% block Contenido %}
+
+
+    
+ <link rel="stylesheet" type="text/css"  href="{% static 'css/formulariox.css'  %}"> 
+ <link rel="stylesheet" type="text/css"  href="{% static 'css/login.css'  %}"> 
+
+
+
+ 
+            <section class="contacto" id="formulario">
+                <form action="" class="formulario" method="POST" >
+                {% csrf_token %}
+                    <h2>Reserva</h2>
+                   
+                     <form method="POST">
+                     
+
+                     {{ form.as_p }}
+       
+                
+             
+                   <input type="submit" class="boton_personalizado" value="Guardar">
+                    <input type="reset" class="boton_personalizado" value="Limpiar">
+              </form>
+              {{ mensaje }}
+                 <hr />
+                 </br>
+                 </br>
+</section>
+
+{% endblock %}

@@ -64,9 +64,9 @@
                             <td>{{r.asistentes    }}</td>
 							<td>{{r.fecha_reserva   }}</td>
 							<td>
-							<a href="{% url 'reserva' %}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+							<a href="{% url 'modreserva' r.id %}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
                             
-                            <a href="{% url 'reserva' %}" class="delete""><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+                            <a href="{% url 'eliminar_reserva' r.id %}" class="delete""><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
 								
 							</td>
                            
